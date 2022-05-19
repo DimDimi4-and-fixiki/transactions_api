@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  fast-api:
+    build: ./app
+    container_name: app_interview_container
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  db:
+    container_name: db_interview_container
+    image: postgres
+    expose:
+      - 5555
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: app_db
+    volumes:
+      - db_volume:/var/lib/postgresql
+volumes:
+  db_volume:
