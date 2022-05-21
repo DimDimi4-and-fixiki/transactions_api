@@ -14,7 +14,7 @@ DATABASE_URL = 'postgresql+psycopg2://user:password@db_interview_container/app_d
 # Initialize SqlAlchemy instance
 metadata = MetaData()
 Base = declarative_base()
-engine = create_engine(DATABASE_URL, echo=True)
+engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind=engine, autoflush=False)
 session = SessionLocal()
 
